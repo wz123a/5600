@@ -1,0 +1,15 @@
+# Load csv
+# import pandas
+# titanic = pandas.read_csv('train_data-011.csv')
+# titanic.head(10)
+from pyspark.sql import SparkSession
+spark = SparkSession.builder.appName("Python Spark regression example").config("config.option", "value").getOrCreate()
+sc = spark.sparkContext
+df =spark.read.csv(path='train_data-011.csv', sep='|',encoding='UTF-8',comment=None, header=True,inferSchema=True)
+df.show(5)
+
+# View the number of rows
+df.count()
+
+# View information about each column
+df.printSchema()
