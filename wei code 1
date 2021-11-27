@@ -1,0 +1,3 @@
+import pyspark
+from pyspark.sql import SparkSession
+spark = SparkSession.builder.appName("Python Spark regression example").config("config.option", "value").getOrCreate()
